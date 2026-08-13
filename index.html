@@ -1,265 +1,1011 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hildebrandi Ishimwe | Energy Engineering Portfolio</title>
+
+    <title>Hildebrandi Ishimwe | Energy Engineer</title>
+
+    <meta name="description"
+        content="Portfolio of Hildebrandi Ishimwe, Energy Engineering student specializing in renewable energy, smart grids, energy management and intelligent power systems.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07111f;
+            color: #e8eef5;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(7, 17, 31, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #1c3047;
+        }
+
+        .nav-content {
+            height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #43d17a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #aebdce;
+            font-size: 0.92rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #43d17a;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 72px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            right: -180px;
+            top: 100px;
+            background: rgba(67, 209, 122, 0.08);
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+
+        .hero-content {
+            max-width: 820px;
+            position: relative;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: #43d17a;
+            border: 1px solid #26553b;
+            background: #0b1d18;
+            padding: 7px 14px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            margin-bottom: 22px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5.7rem);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #43d17a;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.2rem, 3vw, 1.7rem);
+            font-weight: 500;
+            color: #aebdce;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            color: #8fa2b7;
+            font-size: 1.05rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #43d17a;
+            color: #06110b;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #30465e;
+            color: #dbe6f1;
+        }
+
+        .btn-secondary:hover {
+            border-color: #43d17a;
+            color: #43d17a;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 0;
+            border-top: 1px solid #13263b;
+        }
+
+        .section-label {
+            color: #43d17a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.78rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            margin-bottom: 45px;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+        }
+
+        .about-text p {
+            color: #9cafc2;
+            margin-bottom: 18px;
+        }
+
+        .focus-box {
+            border: 1px solid #1e3852;
+            background: #0b1929;
+            padding: 28px;
+            border-radius: 14px;
+        }
+
+        .focus-box h3 {
+            margin-bottom: 20px;
+        }
+
+        .focus-list {
+            list-style: none;
+        }
+
+        .focus-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #1c3047;
+            color: #b5c5d6;
+        }
+
+        .focus-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* EXPERIENCE */
+        .timeline {
+            border-left: 2px solid #25435e;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: #43d17a;
+            border-radius: 50%;
+            position: absolute;
+            left: -37px;
+            top: 8px;
+        }
+
+        .date {
+            color: #43d17a;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .timeline-item h3 {
+            margin: 5px 0;
+            font-size: 1.35rem;
+        }
+
+        .company {
+            color: #8fa2b7;
+            margin-bottom: 15px;
+        }
+
+        .timeline-item ul {
+            padding-left: 20px;
+            color: #9cafc2;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            background: #0b1929;
+            border: 1px solid #1c344d;
+            border-radius: 14px;
+            padding: 28px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            border-color: #43d17a;
+        }
+
+        .project-number {
+            color: #43d17a;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 14px;
+        }
+
+        .project-card p {
+            color: #91a5b9;
+            font-size: 0.93rem;
+        }
+
+        .tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tech span {
+            background: #13273a;
+            color: #b9c9d8;
+            padding: 5px 9px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-box {
+            background: #0b1929;
+            border: 1px solid #1c344d;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .skill-box h3 {
+            color: #43d17a;
+            margin-bottom: 12px;
+        }
+
+        .skill-box p {
+            color: #9cafc2;
+        }
+
+        /* EDUCATION */
+        .education-card {
+            background: #0b1929;
+            border: 1px solid #1c344d;
+            border-radius: 14px;
+            padding: 30px;
+            max-width: 850px;
+        }
+
+        .education-card h3 {
+            font-size: 1.4rem;
+        }
+
+        .education-card p {
+            color: #9cafc2;
+            margin-top: 8px;
+        }
+
+        .education-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .stat {
+            background: #13273a;
+            padding: 10px 14px;
+            border-radius: 7px;
+            color: #c8d5e2;
+            font-size: 0.85rem;
+        }
+
+        /* CERTIFICATIONS */
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .cert {
+            padding: 20px;
+            background: #0b1929;
+            border: 1px solid #1c344d;
+            border-radius: 10px;
+        }
+
+        .cert h3 {
+            font-size: 1rem;
+        }
+
+        .cert p {
+            color: #899db2;
+            font-size: 0.87rem;
+            margin-top: 5px;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .contact p {
+            color: #9cafc2;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            color: #b9c9d8;
+        }
+
+        .contact-info a:hover {
+            color: #43d17a;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #13263b;
+            color: #6f8398;
+            font-size: 0.85rem;
+        }
+
+        /* MOBILE */
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid,
+            .projects-grid,
+            .skills-grid,
+            .certifications {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3.3rem;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Hero Section -->
-    <header>
-        <h1>Hi, I'm Hildebrandi Ishimwe 👋</h1>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container nav-content">
 
-        <h2>Energy Engineering Student | Renewable Energy | Smart Grids | Energy Management</h2>
+            <a href="#home" class="logo">
+                HI<span>.</span>
+            </a>
 
-        <p>
-            Welcome to my portfolio. I am a final-year Energy Engineering student
-            at the University of Rwanda with a passion for renewable energy,
-            smart grids, energy management, and intelligent power systems.
-        </p>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
 
-        <button class="review-button">View Resume</button>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    ENERGY ENGINEERING • RENEWABLE ENERGY • POWER SYSTEMS
+                </div>
+
+                <h1>
+                    Hildebrandi<br>
+                    <span>Ishimwe.</span>
+                </h1>
+
+                <h2>
+                    Energy Engineering Student focused on building
+                    smarter and more sustainable energy systems.
+                </h2>
+
+                <p>
+                    I am a University of Rwanda Energy Engineering student
+                    interested in renewable energy integration, smart grids,
+                    energy management and intelligent power systems.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        Explore My Projects
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+                        Get In Touch
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
     </header>
 
 
-    <!-- About Me -->
+    <!-- ABOUT -->
     <section id="about">
-        <h2>About Me</h2>
 
-        <p>
-            I am an Energy Engineering student at the University of Rwanda,
-            College of Science and Technology, with a strong interest in
-            developing sustainable, reliable, and efficient energy solutions.
-        </p>
+        <div class="container">
 
-        <p>
-            My engineering experience includes renewable energy system design,
-            HVAC optimization, smart utility metering, grid planning, and
-            data-driven energy analysis.
-        </p>
+            <div class="section-label">01 — About</div>
 
-        <p>
-            I am particularly interested in the modernization of Rwanda's
-            energy sector and the future development of AI-assisted power
-            system technologies.
-        </p>
+            <h2 class="section-title">
+                Engineering with a purpose.
+            </h2>
+
+            <div class="about-grid">
+
+                <div class="about-text">
+
+                    <p>
+                        I am an Energy Engineering student at the University
+                        of Rwanda, College of Science and Technology, with a
+                        strong interest in the future of sustainable energy.
+                    </p>
+
+                    <p>
+                        My academic and practical experience has exposed me to
+                        renewable energy system design, grid planning,
+                        HVAC optimization, smart utility systems and
+                        data-driven engineering analysis.
+                    </p>
+
+                    <p>
+                        My long-term goal is to contribute to the modernization
+                        of Rwanda's energy sector through engineering research,
+                        innovation and intelligent power-system technologies.
+                    </p>
+
+                </div>
+
+                <div class="focus-box">
+
+                    <h3>Core Focus Areas</h3>
+
+                    <ul class="focus-list">
+                        <li>⚡ Renewable Energy Integration</li>
+                        <li>🔌 Smart Grids & Power Systems</li>
+                        <li>📊 Energy Management</li>
+                        <li>☀️ Solar & Off-Grid Systems</li>
+                        <li>🤖 Intelligent Energy Technologies</li>
+                        <li>💻 Engineering Data Analysis</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
 
-    <!-- Education -->
-    <section id="education">
-        <h2>Education</h2>
-
-        <h3>University of Rwanda – College of Science and Technology</h3>
-
-        <p>
-            <strong>Bachelor of Science in Energy Engineering</strong>
-            <br>
-            2023 – Present
-        </p>
-
-        <p>
-            Expected Graduation: July 2027
-        </p>
-
-        <p>
-            Academic Standing: Second Class Honours, Lower Division
-            <br>
-            Cumulative Average: 68.5%
-            <br>
-            Year 3 Average: 71.0%
-        </p>
-    </section>
-
-
-    <!-- Experience -->
+    <!-- EXPERIENCE -->
     <section id="experience">
-        <h2>Experience</h2>
 
-        <h3>Electrical & Energy Engineering Intern</h3>
+        <div class="container">
 
-        <h4>Energy Development Corporation Limited (EDCL)</h4>
+            <div class="section-label">02 — Experience</div>
 
-        <p>Kigali, Rwanda | July 2026 – November 2026</p>
+            <h2 class="section-title">
+                Engineering Experience
+            </h2>
 
-        <ul>
-            <li>
-                Assisted senior engineers with power distribution network
-                expansion planning for local communities.
-            </li>
+            <div class="timeline">
 
-            <li>
-                Used PVsyst and HOMER Pro to evaluate technical constraints
-                associated with solar and off-grid power plant integration.
-            </li>
+                <div class="timeline-item">
 
-            <li>
-                Developed Python scripts to process historical grid load
-                profiles and identify technical losses in substations.
-            </li>
+                    <div class="date">
+                        JULY 2026 — NOVEMBER 2026
+                    </div>
 
-            <li>
-                Participated in field diagnostic testing, commissioning,
-                and evaluation of industrial smart utility systems.
-            </li>
-        </ul>
+                    <h3>
+                        Electrical & Energy Engineering Intern
+                    </h3>
+
+                    <div class="company">
+                        Energy Development Corporation Limited (EDCL)
+                        · Kigali, Rwanda
+                    </div>
+
+                    <ul>
+                        <li>
+                            Assisted senior engineers with power distribution
+                            network expansion planning for local communities.
+                        </li>
+
+                        <li>
+                            Used PVsyst and HOMER Pro to evaluate technical
+                            constraints for solar and off-grid power integration.
+                        </li>
+
+                        <li>
+                            Developed Python scripts to process historical
+                            grid-load profiles and identify technical losses
+                            in substations.
+                        </li>
+
+                        <li>
+                            Participated in field diagnostic testing,
+                            commissioning and evaluation of industrial
+                            smart utility systems.
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
 
-    <!-- Projects -->
+    <!-- PROJECTS -->
     <section id="projects">
-        <h2>Featured Projects</h2>
 
-        <article>
-            <h3>Renewable Energy Based Backup Power System for Hospitals</h3>
+        <div class="container">
 
-            <p>
-                Designed, evaluated, and optimized a solar-powered backup
-                system for hospitals using HOMER Pro and Microsoft Excel.
-                The project focused on improving energy security and reducing
-                electricity costs.
-            </p>
+            <div class="section-label">03 — Selected Work</div>
 
-            <p>
-                <strong>Tools:</strong> HOMER Pro, Excel, Solar PV
-            </p>
-        </article>
+            <h2 class="section-title">
+                Engineering Projects
+            </h2>
+
+            <div class="projects-grid">
+
+                <article class="project-card">
+
+                    <div class="project-number">PROJECT 01</div>
+
+                    <h3>
+                        Renewable Energy Backup System for Hospitals
+                    </h3>
+
+                    <p>
+                        Designed, evaluated and optimized a solar-powered
+                        backup system for hospitals with a focus on improving
+                        energy security and reducing electricity costs.
+                    </p>
+
+                    <div class="tech">
+                        <span>HOMER Pro</span>
+                        <span>Excel</span>
+                        <span>Solar PV</span>
+                        <span>Energy Analysis</span>
+                    </div>
+
+                </article>
 
 
-        <article>
-            <h3>Smart Utility Meter System</h3>
+                <article class="project-card">
 
-            <p>
-                Collaborating on a smart utility meter integrating electricity
-                and water payment, notifications, two-way communication,
-                and fault reporting.
-            </p>
+                    <div class="project-number">PROJECT 02</div>
 
-            <p>
-                <strong>Technology:</strong> Python
-            </p>
+                    <h3>
+                        Smart Utility Meter System
+                    </h3>
 
-            <p><strong>Status:</strong> Ongoing</p>
-        </article>
+                    <p>
+                        Collaborating on a smart utility platform integrating
+                        electricity and water payments, notifications,
+                        two-way communication and fault reporting.
+                    </p>
+
+                    <div class="tech">
+                        <span>Python</span>
+                        <span>Smart Metering</span>
+                        <span>IoT Concept</span>
+                        <span>Utility Systems</span>
+                    </div>
+
+                </article>
 
 
-        <article>
-            <h3>Air Supply Diffuser Design & Optimization</h3>
+                <article class="project-card">
 
-            <p>
-                Designed and optimized an air supply diffuser to improve
-                indoor air distribution, reduce noise, and increase efficiency
-                using Autodesk Revit and engineering calculations.
-            </p>
+                    <div class="project-number">PROJECT 03</div>
 
-            <p>
-                <strong>Tools:</strong> Autodesk Revit, Engineering Calculations
-            </p>
-        </article>
+                    <h3>
+                        Air Supply Diffuser Optimization
+                    </h3>
+
+                    <p>
+                        Designed and optimized an air supply diffuser to
+                        improve indoor air distribution, reduce noise and
+                        increase system efficiency.
+                    </p>
+
+                    <div class="tech">
+                        <span>Autodesk Revit</span>
+                        <span>Engineering Design</span>
+                        <span>HVAC</span>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
     </section>
 
 
-    <!-- Skills -->
+    <!-- SKILLS -->
     <section id="skills">
-        <h2>Technical Skills</h2>
 
-        <h3>Programming</h3>
-        <p>C · C++ · Python · SQL · HTML</p>
+        <div class="container">
 
-        <h3>Engineering Software</h3>
-        <p>
-            HOMER Pro · Power World Simulator · PVsyst · Revit · MATLAB ·
-            Microsoft Excel
-        </p>
+            <div class="section-label">04 — Technical Stack</div>
 
-        <h3>Technical Concepts</h3>
-        <p>
-            Renewable Energy · Smart Grids · Energy Management · Power Systems
-            · Cybersecurity Basics
-        </p>
+            <h2 class="section-title">
+                Tools & Technical Skills
+            </h2>
+
+            <div class="skills-grid">
+
+                <div class="skill-box">
+                    <h3>Programming</h3>
+                    <p>
+                        Python<br>
+                        C<br>
+                        C++<br>
+                        SQL<br>
+                        HTML
+                    </p>
+                </div>
+
+                <div class="skill-box">
+                    <h3>Energy & Power</h3>
+                    <p>
+                        HOMER Pro<br>
+                        PVsyst<br>
+                        Power World Simulator<br>
+                        MATLAB
+                    </p>
+                </div>
+
+                <div class="skill-box">
+                    <h3>Engineering & Analysis</h3>
+                    <p>
+                        Autodesk Revit<br>
+                        Microsoft Excel<br>
+                        Energy Management<br>
+                        Energy Auditing<br>
+                        Power Quality
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
 
-    <!-- Certifications -->
+    <!-- EDUCATION -->
+    <section id="education">
+
+        <div class="container">
+
+            <div class="section-label">05 — Education</div>
+
+            <h2 class="section-title">
+                Academic Background
+            </h2>
+
+            <div class="education-card">
+
+                <h3>
+                    Bachelor of Science in Energy Engineering
+                </h3>
+
+                <p>
+                    University of Rwanda — College of Science and Technology
+                </p>
+
+                <p>
+                    Kigali, Rwanda · 2023 — Present
+                </p>
+
+                <div class="education-stats">
+
+                    <div class="stat">
+                        Expected Graduation: July 2027
+                    </div>
+
+                    <div class="stat">
+                        68.5% Cumulative Average
+                    </div>
+
+                    <div class="stat">
+                        71.0% Year 3 Average
+                    </div>
+
+                    <div class="stat">
+                        Second Class Honours, Lower Division
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CERTIFICATIONS -->
     <section id="certifications">
-        <h2>Courses & Certifications</h2>
 
-        <ul>
-            <li>Python Programming – FreeCodeCamp</li>
-            <li>Energy Management – Schneider Electric University</li>
-            <li>Energy Audit – Schneider Electric University</li>
-            <li>Power Factor and Harmonics – Schneider Electric University</li>
-            <li>Leadership Essentials – DisasterReady</li>
-        </ul>
+        <div class="container">
+
+            <div class="section-label">06 — Professional Development</div>
+
+            <h2 class="section-title">
+                Courses & Certifications
+            </h2>
+
+            <div class="certifications">
+
+                <div class="cert">
+                    <h3>Python Programming</h3>
+                    <p>FreeCodeCamp</p>
+                </div>
+
+                <div class="cert">
+                    <h3>Energy Management</h3>
+                    <p>Schneider Electric University</p>
+                </div>
+
+                <div class="cert">
+                    <h3>Energy Audit</h3>
+                    <p>Schneider Electric University</p>
+                </div>
+
+                <div class="cert">
+                    <h3>Power Factor & Harmonics</h3>
+                    <p>Schneider Electric University</p>
+                </div>
+
+                <div class="cert">
+                    <h3>Leadership Essentials</h3>
+                    <p>DisasterReady</p>
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
 
-    <!-- Leadership & Volunteering -->
-    <section id="leadership">
-        <h2>Leadership & Volunteering</h2>
+    <!-- LEADERSHIP -->
+    <section>
 
-        <h3>Student Mentor – University of Rwanda</h3>
+        <div class="container">
 
-        <p>2024 – Present</p>
+            <div class="section-label">07 — Leadership</div>
 
-        <p>
-            Providing academic support and guidance to engineering students,
-            assisting with coursework and engineering projects while promoting
-            teamwork and knowledge sharing.
-        </p>
+            <h2 class="section-title">
+                Beyond Engineering
+            </h2>
 
-        <h3>Leadership Training Participant</h3>
+            <div class="about-grid">
 
-        <p>
-            DisasterReady / National Intore Commission
-        </p>
+                <div class="focus-box">
 
-        <p>
-            Completed leadership training focused on communication, teamwork,
-            ethical leadership, decision-making, and responsibility.
-        </p>
+                    <h3>Student Mentor</h3>
+
+                    <p>
+                        University of Rwanda — College of Science & Technology
+                    </p>
+
+                    <p style="color:#91a5b9; margin-top:12px;">
+                        Providing academic support and guidance to engineering
+                        students while supporting coursework, engineering
+                        projects and collaborative learning.
+                    </p>
+
+                </div>
+
+                <div class="focus-box">
+
+                    <h3>Leadership Training</h3>
+
+                    <p>
+                        DisasterReady / National Intore Commission
+                    </p>
+
+                    <p style="color:#91a5b9; margin-top:12px;">
+                        Training focused on communication, teamwork,
+                        ethical leadership, decision-making and responsibility.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
 
-    <!-- Languages -->
-    <section id="languages">
-        <h2>Languages</h2>
-
-        <ul>
-            <li>English – Very Good</li>
-            <li>Kinyarwanda – Excellent</li>
-        </ul>
-    </section>
-
-
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section id="contact">
-        <h2>Let's Connect</h2>
 
-        <p>
-            I am interested in opportunities involving renewable energy,
-            smart grids, energy management, power systems, and engineering
-            research.
-        </p>
+        <div class="container">
 
-        <p>
-            📧 Email:
-            <a href="mailto:hildebrandiishimwe20@gmail.com">
-                hildebrandiishimwe20@gmail.com
-            </a>
-        </p>
+            <div class="contact">
 
-        <p>
-            📍 Kigali, Rwanda
-        </p>
+                <div class="section-label">08 — Contact</div>
+
+                <h2 class="section-title">
+                    Let's build a smarter energy future.
+                </h2>
+
+                <p>
+                    I am open to opportunities in renewable energy,
+                    power systems, smart grids, energy management,
+                    engineering research and related technologies.
+                </p>
+
+                <div class="contact-info">
+
+                    <a href="mailto:hildebrandiishimwe20@gmail.com">
+                        ✉ hildebrandiishimwe20@gmail.com
+                    </a>
+
+                    <span>
+                        📍 Kigali, Rwanda
+                    </span>
+
+                    <span>
+                        📱 +250 781 163 751
+                    </span>
+
+                </div>
+
+                <a
+                    href="mailto:hildebrandiishimwe20@gmail.com"
+                    class="btn btn-primary"
+                >
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
     </section>
 
 
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 Hildebrandi Ishimwe. All rights reserved.</p>
+
+        <div class="container">
+
+            <p>
+                © 2026 Hildebrandi Ishimwe · Energy Engineering Portfolio
+            </p>
+
+        </div>
+
     </footer>
 
 </body>
 </html>
+```
